@@ -21,3 +21,10 @@ def health_check():
         "status": "healthy",
         "service": "devsecops-api"
     }
+
+@app.get("/version")
+def get_version():
+    return {
+        "version": "0.1.0",
+        "environment": "development"
+    }

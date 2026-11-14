@@ -15,3 +15,10 @@ def test_health():
     assert response.status_code == 200
     assert response.json()["status"] == "healthy"
     assert response.json()["service"] == "devsecops-api"
+
+def test_version():
+    response = client.get("/version")
+
+    assert response.status_code == 200
+    assert response.json()["version"] == "0.1.0"
+    assert response.json()["environment"] == "development"
